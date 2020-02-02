@@ -16,7 +16,6 @@ class TracksController < ApplicationController
     render :new
   end
 
-
   def create
     @track = Track.new(track_params)
     @track.save
@@ -24,11 +23,14 @@ class TracksController < ApplicationController
   end
 
   def edit
+    @track = Track.find(params[:id])
     render :edit
   end
 
   def update
-    
+    @track = Track.find(params[:id])
+    @track.update(track_params)
+    redirect_to album_url(@track.album_id)
   end
 
   def destroy
