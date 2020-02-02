@@ -1,0 +1,17 @@
+<br><br>
+<center>
+<h1>Create Band</h1><br><br>
+
+<form action="<%= bands_url %>" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<label for="">Name:
+<input type="text" name="band[name]">
+</label><br><br>
+<button class="btn btn-success" type="submit">Add band</button>
+</form>
+<br><br>
+<a href="<%= users_url %>">
+<button type="button" class="btn btn-warning" >Cancel</button>
+</a>
+</center>

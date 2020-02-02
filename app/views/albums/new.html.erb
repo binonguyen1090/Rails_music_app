@@ -1,0 +1,33 @@
+
+<br><br>
+<center>
+<h1>Create album</h1>
+<br><br>
+<form action="<%= albums_url %>" method="post">
+
+<input type="hidden" name="album[band_id]" value="<%= params[:band_id] %>">
+
+
+<label for="">Title
+  <input type="text" name="album[title]">
+</label>
+  <br><br>
+<label for="">Year
+  <input type="text" name="album[year]">
+</label>
+<br><br>
+
+<button type="submit" type="button" class="btn btn-success">Create Album</button>
+
+<a href="<%= band_url(params[:band_id]) %>">
+<button type="button" class="btn btn-warning" >Cancel</button>
+</a>
+
+</form>
+
+</center>
+
+
+
+
+

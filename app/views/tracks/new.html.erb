@@ -1,0 +1,17 @@
+<br><br><br>
+<center>
+
+<h1>Create Tracks</h1>
+<br><br>
+
+
+<form action="<%= tracks_url %>" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="hidden" name="track[album_id]" value="<%= params[:album_id] %>">
+  <label for=""><h3>Track Title </h3><br>
+    <input type="text" name="track[title]" id="">
+  </label>
+  <br><br>
+  <button type="submit" type="button" class="btn btn-success" > Create Track</button>
+</form>
+</center>

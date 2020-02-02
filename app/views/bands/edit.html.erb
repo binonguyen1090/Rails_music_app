@@ -1,0 +1,21 @@
+<br><br>
+<center>
+<h1>Edit Band:</h1>
+<br><br>
+<form action="<%= band_url(@band) %>" method="post">
+<input type="hidden" name="_method" value="PATCH">
+
+<label for=""><h3>Name</h3>
+<input type="text" name="band[name]" value="<%= @band.name %>">
+
+</label>
+
+<br><br>
+<button type="submit" type="button" class="btn btn-success" >Update</button>
+
+
+<a href="<%= users_url %>">
+<button type="button" class="btn btn-warning" >Cancel</button>
+</a>
+</form>
+</center>

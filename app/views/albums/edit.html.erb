@@ -1,0 +1,27 @@
+<br><br>
+<center>
+<h1>Edit Album</h1>
+
+<br><br>
+<form action="<%= album_url(@album.id) %>" method="post">
+<input type="hidden" name="_method" value="PATCH">
+
+
+
+<input type="hidden" name="album[band_id]" value="<%= @album.band_id %>">
+
+<label for="">Title
+<input type="text" name="album[title]" value="<%= @album.title %>">
+</label><br><br>
+<label for="" >Year
+<input type="text" name="album[year]" value="<%= @album.year %>">
+</label><br>
+<br>
+
+<button class="btn btn-success" type="submit" >Update Album</button>
+
+<a href="<%= band_url(@album.band_id) %>">
+<button type="button" class="btn btn-warning" >Cancel</button>
+</a>
+</form>
+</center>

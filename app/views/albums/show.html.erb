@@ -1,0 +1,65 @@
+
+<br><br>
+<h1>Tracks of Album: <%= @album.title  %> </h1>
+<a href="<%= new_album_track_url(@album) %>">
+<button type="button" class="btn btn-success" >Add Track</button>
+</a>
+
+<a href="<%= band_url(@album.band_id)%>">
+<button type="button" class="btn btn-secondary">
+<%= octicon "arrow-left" %>
+</button>
+</a>
+
+<br><br>
+
+
+
+
+
+
+
+
+<div class="container" > 
+<table class="table table-striped table-bordered table-dark">
+
+
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Track Title</th>
+      <th scope="col">Edit</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+<% @album.tracks.each do |track| %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= track.id %></th>
+
+      <td>
+      <button  type="button" class="btn btn-warning"><%= track.title %></button>
+      </td>
+
+
+
+      <td>
+      <a href="<%= edit_track_url(track) %>">
+      <button type="button" class="btn btn-outline-info" ><%= octicon "tools", :height => 25 %></button>
+      </a>
+      </td>
+
+      <td>
+      <form action="<%= track_url(track) %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+       <button type="summit" class="btn btn-outline-danger"><%= octicon "trashcan", :height => 25 %></button>
+     
+      </form>
+      </td>
+
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+
+</div>

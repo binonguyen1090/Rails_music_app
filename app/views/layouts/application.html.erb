@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyMusic</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+      <nav class="navbar navbar-dark bg-dark justify-content-between" >
+  <div class="container-fluid">
+  <a href="<%= users_url %>" class="navbar-brand"><button type="button" class="btn btn-primary" action="<%= users_url %>"><%= octicon "home", :height=>30 %></button></a>
+
+  <% if logged_in? %>
+
+  <p style="color:red" >Hello there : <%= current_user.username %></p>
+
+  <form class="form-inline" action="<%= session_url %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  
+  <button type="submit" class="btn btn-danger my-2 my-sm-0" >Sign out</button>
+  
+  </form>
+
+  <br>
+  <% else %>
+  <a href="<%= new_session_url %>">
+  <button type="button" class="btn btn-primary" >Sign In</button>
+  </a>
+  <a href="<%= new_user_url %>">
+    <button type="button" class="btn btn-primary" >Sign Up</button>
+  </a>
+  <% end %>
+  </div>
+</nav>
+  </head>
+
+
+  <body style="background-color:lightgreen"> 
+  <br>
+  <center>
+    <%= octicon "thumbsup", :height => 32%>
+  </center>
+    <%= yield %>
+  </body>
+
+</html>

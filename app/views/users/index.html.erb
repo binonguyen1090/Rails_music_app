@@ -1,0 +1,67 @@
+<br>
+<center><h1 style="color:blue">Welcome to Music App</h1></center>
+
+
+
+<!-- <% @users.each do |user| %>
+<%= user.username %>
+
+<form action="<%= user_url(user) %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <button type="submit">Delete</button><br>
+
+</form>
+<% end %> -->
+<center>
+<h4>Add Band</h4>
+<a href="<%= new_band_url %>">
+<button type="button" class="btn btn-success"><%= octicon "plus" %></button>
+</a>
+<br><br>
+</center>
+
+
+<div class="container" > 
+<table class="table table-striped table-bordered table-dark" >
+  <thead>
+    <tr>
+      <th scope="col">Band Name</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <% @bands.each do |band| %>
+  <tbody>
+    <tr>
+    <td>
+      <a href="<%= band_url(band) %>">
+      <button  type="button" class="btn btn-warning"><%= band.name %></button>
+      </a>
+    </td>
+    <td>
+    
+    <a href="<%= edit_band_url(band) %>">
+    <button type="button" class="btn btn-outline-info"><%= octicon "tools", :height => 25 %></button>
+    
+    
+    </a>
+    
+    </td>
+    <td>
+      <form action="<%= band_url(band) %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+       <button type="summit" class="btn btn-outline-danger"><%= octicon "trashcan", :height => 25 %></button>
+        
+      </form>
+      </td>
+    </tr>
+
+  </tbody>
+  <% end %>
+</table>
+</div>
+
+
+
+
