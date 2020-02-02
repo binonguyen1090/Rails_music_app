@@ -12,7 +12,6 @@ class AlbumsController < ApplicationController
 
 # Nested New Album
 
-# <input type="hidden" name="album[band_id]" value="<%= params[:band_id] %>">
   def new
 
     @band = Band.find(params[:band_id])
@@ -36,7 +35,7 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id])
-    @album.band_id = params[:band_id ]
+    # @album.band_id = params[:band_id ]
     @album.update(album_params)
     # debugger
     redirect_to band_url(@album.band_id)
